@@ -6,9 +6,9 @@
 (defun make-cd (title artist rating ripped)
   "Create a CD"
   (list :title title
-	:artist artist
-	:rating rating
-	:ripped ripped))
+        :artist artist
+        :rating rating
+        :ripped ripped))
 
 (defun add-cd (cd)
   "Add the CD to our global database"
@@ -47,13 +47,13 @@
   (loop
     (add-cd (prompt-for-cd))
     (if (not (y-or-n-p "Add another one? "))
-	(return))))
+        (return))))
 
 (defun save-db (filename)
   "Save the database *db* into the file passed as parameter"
   (with-open-file (out filename
-		   :direction :output
-		   :if-exists :supersede)
+                   :direction :output
+                   :if-exists :supersede)
     (with-standard-io-syntax
       (print *db* out))))
 
@@ -62,4 +62,3 @@
   (with-open-file (in filename)
     (with-standard-io-syntax
       (setf *db* (read in)))))
-
