@@ -34,4 +34,5 @@ Common Lisp".
   - `getf` to get the element
 - Add cd into the DB
 - Prompt inputs from user
-- TODO: Open & Save the DB
+- Open & Save the DB
+- TODO: Query

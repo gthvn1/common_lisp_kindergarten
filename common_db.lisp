@@ -48,3 +48,18 @@
     (add-cd (prompt-for-cd))
     (if (not (y-or-n-p "Add another one? "))
 	(return))))
+
+(defun save-db (filename)
+  "Save the database *db* into the file passed as parameter"
+  (with-open-file (out filename
+		   :direction :output
+		   :if-exists :supersede)
+    (with-standard-io-syntax
+      (print *db* out))))
+
+(defun load-db (filename)
+  "Load a database into *db* from the file passed in parameter"
+  (with-open-file (in filename)
+    (with-standard-io-syntax
+      (setf *db* (read in)))))
+
